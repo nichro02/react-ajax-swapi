@@ -1,13 +1,18 @@
 import React from 'react'
+import '../../Layout.css';
 import {
     Route,
     Link
 } from 'react-router-dom'
 
+
+
 const Layout = (props) => {
     return (
         <div>
-            <div>Star Wars Starships</div>
+            <div>
+                <h1>Star Wars Starships</h1>
+            </div>
             <div>{props.children}</div>
         </div>
     )
