@@ -16,7 +16,7 @@ const Home = () => {
     //initialize state for loader
     const [loading, setLoading] = useState(true)
 
-    
+    /*
     useEffect(() => {
         axios.get('https://swapi.dev/api/starships/').then((res) => {
         console.log(res.data)  
@@ -24,7 +24,7 @@ const Home = () => {
           setData(res.data.results)
         }).then(() => setLoading(false))
     }, [])
-    
+    */
 
     /*
     useEffect(() => {
@@ -53,6 +53,21 @@ const Home = () => {
     }, [])
     */
     
+   useEffect(()=>{
+    let url1 = 'https://swapi.dev/api/starships/'
+    let url2 = 'http://swapi.dev/api/starships/?page=2'
+    let url3 = 'http://swapi.dev/api/starships/?page=3'
+    let url4 = 'http://swapi.dev/api/starships/?page=4'
+    const starshipArray = []
+    Promise.all([axios.get(url1),axios.get(url2), axios.get(url3), axios.get(url4)])
+    .then(responses=>{
+        responses.map(response=>starshipArray.push(...response.data.results))
+        console.log(starshipArray)
+      setData(starshipArray)
+    })
+    .then(() => setLoading(false))
+
+  },[])
 
     const display = () => {
         
