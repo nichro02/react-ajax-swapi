@@ -3,6 +3,7 @@ import {
     Route,
     Link
 } from 'react-router-dom'
+import '../Home.css';
 
 const Starship = (params) => {
     console.log(params)
@@ -20,7 +21,7 @@ const Starship = (params) => {
                 </div>
             </div>
             
-            <Link to='/'>Return to Home Base</Link>
+            <Link className="link"v to='/'>Return to Home Base</Link>
         </div>
         </>
     )

@@ -4,6 +4,7 @@ import {
     Link
 } from 'react-router-dom'
 import axios from 'axios'
+import '../Home.css';
 
 //import components
 import Loader from './common/Loader'
@@ -15,12 +16,43 @@ const Home = () => {
     //initialize state for loader
     const [loading, setLoading] = useState(true)
 
+    
     useEffect(() => {
         axios.get('https://swapi.dev/api/starships/').then((res) => {
-          console.log(res.data.results)
+        console.log(res.data)  
+        console.log(res.data.results)
           setData(res.data.results)
         }).then(() => setLoading(false))
     }, [])
+    
+
+    /*
+    useEffect(() => {
+        let shipArray = []
+        let page = 1
+        
+        axios.get(`https://swapi.dev/api/starships/?page=${page}`)
+        .then((res) => {
+            shipArray.push(res.data.results)
+            page += 1
+            if(res.data.next !== null) {
+                console.log('CHAINED PROMISE')
+                axios.get(`https://swapi.dev/api/starships/?page=${page}`)
+                .then ((res) => {
+                    console.log(res.data)
+                    shipArray.push(res.data.results)
+                    console.log(shipArray)
+                    page += 1
+                })     
+            }
+            
+            setData(shipArray)  
+        })
+        .then(() => setLoading(false))
+
+    }, [])
+    */
+    
 
     const display = () => {
         
@@ -33,7 +65,7 @@ const Home = () => {
                         <div className="card-content white-text">
                             <span className="card-title">{ship.name}</span>
                         </div>
-                        <Link 
+                        <Link className="link"
                             to={{
                             pathname: `/starship/${index}`,
                             state:{ ship }

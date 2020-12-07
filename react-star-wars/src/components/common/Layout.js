@@ -10,7 +10,7 @@ import {
 const Layout = (props) => {
     return (
         <div>
-            <div>
+            <div id="layoutHeader">
                 <h1>Star Wars Starships</h1>
             </div>
             <div>{props.children}</div>

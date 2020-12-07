@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: grey;
+  min-height: 1200px;
 }
 
 .App-logo {
@@ -13,6 +15,7 @@
   }
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -23,6 +26,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
 
 .App-link {
   color: #61dafb;
