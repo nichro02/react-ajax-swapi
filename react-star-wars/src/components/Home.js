@@ -17,6 +17,8 @@ const Home = () => {
     const [loading, setLoading] = useState(true)
 
     /*
+    //First useEffect I wrote - works, but only fetches first page
+
     useEffect(() => {
         axios.get('https://swapi.dev/api/starships/').then((res) => {
         console.log(res.data)  
@@ -27,6 +29,8 @@ const Home = () => {
     */
 
     /*
+    //useEffect I was shooting for and got working somewhat - my goal here was to chain promises and make API calls for all 4 pages. I was able to fetch second page and push into shipArray so that shipArray had nested arrays, but wasn't able to re-factor code to iterate through nested arrays to pull out ship info
+
     useEffect(() => {
         let shipArray = []
         let page = 1
@@ -52,7 +56,7 @@ const Home = () => {
 
     }, [])
     */
-    
+   //modified this useEffect from Monica's code 
    useEffect(()=>{
     let url1 = 'https://swapi.dev/api/starships/'
     let url2 = 'http://swapi.dev/api/starships/?page=2'
